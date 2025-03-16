@@ -289,6 +289,8 @@ a:hover {
 
 .centered-contact .contact-info-item {
     justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.2rem;
 }
 
 .about-text {

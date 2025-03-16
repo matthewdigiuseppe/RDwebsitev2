@@ -6,7 +6,6 @@
  * - Smooth scrolling for navigation links
  * - Header scroll behavior
  * - Current year for footer copyright
- * - Form validation and submission
  */
 
 // Wait for DOM to be fully loaded
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mainNav = document.getElementById('main-nav').querySelector('ul');
     const navLinks = document.querySelectorAll('#main-nav ul li a');
-    const contactForm = document.getElementById('contact-form');
     const currentYearSpan = document.getElementById('current-year');
     
     // Set current year in footer
@@ -110,112 +108,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
-    // Form validation and submission
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Basic form validation
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const subjectInput = document.getElementById('subject');
-            const messageInput = document.getElementById('message');
-            
-            let isValid = true;
-            
-            // Validate name
-            if (nameInput.value.trim() === '') {
-                showError(nameInput, 'Name is required');
-                isValid = false;
-            } else {
-                removeError(nameInput);
-            }
-            
-            // Validate email
-            if (emailInput.value.trim() === '') {
-                showError(emailInput, 'Email is required');
-                isValid = false;
-            } else if (!isValidEmail(emailInput.value)) {
-                showError(emailInput, 'Please enter a valid email');
-                isValid = false;
-            } else {
-                removeError(emailInput);
-            }
-            
-            // Validate subject
-            if (subjectInput.value.trim() === '') {
-                showError(subjectInput, 'Subject is required');
-                isValid = false;
-            } else {
-                removeError(subjectInput);
-            }
-            
-            // Validate message
-            if (messageInput.value.trim() === '') {
-                showError(messageInput, 'Message is required');
-                isValid = false;
-            } else {
-                removeError(messageInput);
-            }
-            
-            // If valid, simulate form submission
-            if (isValid) {
-                // In a real application, you would send data to a server here
-                // For now, we'll just simulate a successful submission
-                
-                // Disable the submit button and show loading state
-                const submitButton = contactForm.querySelector('button[type="submit"]');
-                const originalText = submitButton.textContent;
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                
-                // Simulate server response with timeout
-                setTimeout(() => {
-                    // Show success message
-                    contactForm.innerHTML = `
-                        <div class="success-message">
-                            <i class="fas fa-check-circle"></i>
-                            <h3>Message Sent Successfully!</h3>
-                            <p>Thank you for contacting us. We'll get back to you shortly.</p>
-                        </div>
-                    `;
-                    
-                    // Scroll to success message
-                    contactForm.scrollIntoView({ behavior: 'smooth' });
-                }, 1500);
-            }
-        });
-    }
-    
-    // Helper functions for form validation
-    function showError(input, message) {
-        const formGroup = input.parentElement;
-        let errorElement = formGroup.querySelector('.error-message');
-        
-        if (!errorElement) {
-            errorElement = document.createElement('div');
-            errorElement.className = 'error-message';
-            formGroup.appendChild(errorElement);
-        }
-        
-        input.classList.add('error');
-        errorElement.textContent = message;
-    }
-    
-    function removeError(input) {
-        const formGroup = input.parentElement;
-        const errorElement = formGroup.querySelector('.error-message');
-        
-        if (errorElement) {
-            formGroup.removeChild(errorElement);
-        }
-        
-        input.classList.remove('error');
-    }
-    
-    function isValidEmail(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
 });

@@ -1,0 +1,14 @@
+# Headers configuration for Netlify, Cloudflare Pages, and similar platforms
+# This ensures AI crawlers can access the site
+
+/*
+  # Allow all user-agents including AI crawlers
+  X-Robots-Tag: index, follow, all
+
+  # Standard security headers
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Allow access (don't block by user-agent)
+  Access-Control-Allow-Origin: *

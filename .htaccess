@@ -1,0 +1,48 @@
+# Allow AI crawlers and assistants
+# This file whitelists common AI user-agents to prevent 403 errors
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Allow Claude AI (Anthropic)
+    RewriteCond %{HTTP_USER_AGENT} "claudebot|anthropic-ai|claude-web" [NC]
+    RewriteRule .* - [L]
+
+    # Allow ChatGPT (OpenAI)
+    RewriteCond %{HTTP_USER_AGENT} "ChatGPT-User|GPTBot|OAI-SearchBot" [NC]
+    RewriteRule .* - [L]
+
+    # Allow Google Bard/Gemini
+    RewriteCond %{HTTP_USER_AGENT} "Google-Extended|Bard|Gemini" [NC]
+    RewriteRule .* - [L]
+
+    # Allow Bing AI
+    RewriteCond %{HTTP_USER_AGENT} "bingbot|msnbot|BingPreview" [NC]
+    RewriteRule .* - [L]
+
+    # Allow Perplexity
+    RewriteCond %{HTTP_USER_AGENT} "PerplexityBot" [NC]
+    RewriteRule .* - [L]
+
+    # Allow common search engine crawlers
+    RewriteCond %{HTTP_USER_AGENT} "Googlebot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebot|ia_archiver" [NC]
+    RewriteRule .* - [L]
+</IfModule>
+
+# Alternative method using mod_access
+<IfModule mod_authz_core.c>
+    <RequireAll>
+        Require all granted
+    </RequireAll>
+</IfModule>
+
+# Set security headers but allow AI access
+<IfModule mod_headers.c>
+    # Allow crawling and indexing
+    Header set X-Robots-Tag "index, follow, all"
+
+    # Standard security headers
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

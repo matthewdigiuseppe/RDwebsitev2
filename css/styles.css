@@ -163,7 +163,7 @@ a:hover {
 }
 
 .logo-img {
-    max-height: 62px;
+    max-height: 31px;
     width: auto;
     transition: transform var(--transition-speed);
 }

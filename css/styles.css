@@ -313,37 +313,155 @@ a:hover {
     margin: 0 auto;
 }
 
+.philosophy-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.philosophy-section:last-child {
+    margin-bottom: 0;
+}
+
 /* =======================================
   7. Cards & Grids
 ======================================= */
-.services-grid,
-.philosophy-grid {
+.services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-md);
 }
 
-.service-card,
-.philosophy-card {
+
+
+.service-card {
     background-color: white;
     border-radius: var(--border-radius-md);
     padding: var(--spacing-md);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.service-card:hover,
-.philosophy-card:hover {
+.service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .service-icon,
 .philosophy-icon {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
+}
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: auto;
+    font-weight: 600;
+    color: var(--primary-color);
+    justify-content: center;
+}
+
+.service-link i {
+    margin-left: var(--spacing-xs);
+    transition: transform var(--transition-speed);
+}
+
+.service-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Accordion Styles */
+.accordion {
+    margin-top: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: white;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--heading-font);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    transition: background-color var(--transition-speed);
+}
+
+.accordion-header:hover {
+    background-color: var(--light-color);
+}
+
+.accordion-header i {
+    transition: transform var(--transition-speed);
+    color: var(--primary-color);
+}
+
+.accordion-header.active {
+    background-color: var(--light-color);
+}
+
+.accordion-header.active i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: white;
+}
+
+.accordion-content p {
+    padding: var(--spacing-md);
+    margin-bottom: 0;
+    color: var(--gray-color);
+}
+
+/* Blockquote Styles */
+.philosophy-quote {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-lg);
+    border-left: 6px solid var(--secondary-color);
+    background-color: #fffaf0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--dark-color);
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.philosophy-quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--secondary-color);
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-family: serif;
 }
 
 /* =======================================

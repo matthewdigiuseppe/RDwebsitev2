@@ -1,0 +1,50 @@
+Update Nov 20 2025
+
+# Project Brief: REALdegrees Website Overhaul (v2.0)
+
+**Goal:** Modernize the UX/UI to reflect a "human-first" approach to technology, improve content readability, and fix branding inconsistencies. The site needs to move from a text-heavy academic layout to a dynamic, conversion-focused SaaS/Consultancy aesthetic.
+
+---
+
+## Phase 1: Branding & Identity
+- [ ]  Instead of showing the admin@realdegrees.ai email (inconsistent with .net), hide the email domain behind a link. 
+- [ ] **Color Palette Refresh:**
+    - Move away from "Safe Corporate Blue/Grey."
+
+
+## Phase 2: UX & Layout Redesign
+### The Hero Section (Above the Fold)
+- [ ] **Visual Hook:** Replace the text-only header with a split layout.
+    - Left: Strong Value Prop + CTA.
+    - Right: A high-quality visual (Abstract representation of Human vs. AI, or a candid photo of real educators).
+- [ ] **Clear CTA:** Change "View Our Services" to something action-oriented like "Audit Your Curriculum" or "Protect Academic Integrity."
+
+### The "Services" Section
+- [ ] **Card Layout:** Convert the bulleted list into a Grid/Card layout.
+    - Each service gets a card with: An Icon, A Headline, a 1-sentence summary, and a "Learn More" arrow.
+    - Add hover effects (slight lift or shadow) to indicate interactivity.
+
+### The "Philosophy" Section (The Reading Fix)
+- [ ] **Kill the Wall of Text:** Break the "Dual Threat" essay into digestible chunks. 
+    - Use an **Accordion** (Expand/Collapse) for detailed points.
+    - OR use a **"Bento Box" grid** to display core values as visual blocks rather than paragraphs.
+- [ ] **Pull Quotes:** Highlight key sentences (e.g., *"Education is the foundational process through which individuals develop genuine human potential"*) using large, stylized blockquotes.
+
+## Phase 3: Copywriting & Content
+- [ ] **Voice Humanization:**
+    - Audit content for "Bot-Speak" (e.g., "Undermining Human Capital"). Make it sound less like a bot and more like a mic-career academic. 
+
+- [ ] **Scannability:** Ensure no paragraph exceeds 3 sentences. Use bold text for emphasis on keywords.
+
+## Phase 4: Technical & Footer
+- [ ] **Footer Clean Up:**
+    - Ensure Copyright date is dynamic (code-based) rather than hardcoded text.
+- [ ] **Mobile Optimization:**
+    - Ensure the new "Philosophy" layout stacks correctly on mobile without requiring endless scrolling.
+
+---
+
+## Success Metrics
+1. **Scannability:** Can a user understand what we do in under 5 seconds?
+2. **Human Feel:** Does the site feel warm and authoritative, rather than cold and automated?
+3. **Navigation:** Is the path from "Hero" to "Contact" frictionless?
